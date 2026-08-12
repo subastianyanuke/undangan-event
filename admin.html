@@ -1,666 +1,2336 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0a0a">
-<meta property="og:title" content="Ibanez Guitar Showdown 2024">
-<meta property="og:description" content="Daftar sekarang dan ikuti seru-seruan event gitar Ibanez!">
-<meta property="og:image" content="https://subastianyanuke.github.io/undangan-event/ft.jpg">
-<meta property="og:url" content="https://subastianyanuke.github.io/undangan-event/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
 
-<title>Admin Event Gitar - Ibanez</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ibanez Guitar Showdown 2024">
+    <meta property="og:description" content="Daftar sekarang dan ikuti seru-seruan event gitar Ibanez!">
+    <meta property="og:image" content="https://subastianyanuke.github.io/undangan-event/ft.jpg">
+    <meta property="og:image:secure_url" content="https://subastianyanuke.github.io/undangan-event/ft.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://subastianyanuke.github.io/undangan-event/">
+    <meta property="og:type" content="website">
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ibanez Guitar Showdown 2024">
+    <meta name="twitter:description" content="Daftar sekarang dan ikuti seru-seruan event gitar Ibanez!">
+    <meta name="twitter:image" content="https://subastianyanuke.github.io/undangan-event/ft.jpg">
 
-<style>
-:root{
-    --black:#080808;
-    --black2:#111111;
-    --gold:#d4af37;
-    --gold2:#f1d875;
-    --cream:#f1e9d2;
-    --muted:#a8a18f;
-    --danger:#ef4444;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-    margin:0;
-    min-height:100vh;
-    font-family:'Poppins',sans-serif;
-    background:
-        radial-gradient(circle at 80% 10%,rgba(212,175,55,.10),transparent 25%),
-        radial-gradient(circle at 20% 90%,rgba(212,175,55,.06),transparent 25%),
-        var(--black);
-    color:var(--cream);
-}
-.font-display{font-family:'Cinzel',serif}
-.text-gold{color:var(--gold)}
-.border-gold{border-color:var(--gold)}
-.btn-gold{
-    background:linear-gradient(135deg,var(--gold),var(--gold2));
-    color:#080808;
-    border:1px solid var(--gold);
-    transition:.25s;
-}
-.btn-gold:hover{transform:translateY(-1px);box-shadow:0 8px 25px rgba(212,175,55,.18)}
-.btn-wa{
-    background:#111;
-    color:#e6c653;
-    border:1px solid var(--gold);
-    transition:.25s;
-}
-.btn-wa:hover{background:var(--gold);color:#080808}
-.input-style,.select-style{
-    width:100%;
-    background:rgba(255,255,255,.035);
-    border:1px solid rgba(212,175,55,.35);
-    color:var(--cream);
-    transition:.2s;
-}
-.input-style::placeholder{color:#766f61}
-.input-style:focus,.select-style:focus{
-    outline:none;
-    border-color:var(--gold);
-    box-shadow:0 0 0 3px rgba(212,175,55,.09);
-}
-.select-style option{background:#111;color:var(--cream)}
-.card{
-    background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(0,0,0,.28));
-    border:1px solid rgba(212,175,55,.25);
-    box-shadow:0 15px 45px rgba(0,0,0,.25);
-}
-.corner-ornament{position:relative}
-.corner-ornament:before,.corner-ornament:after{
-    content:"";
-    position:absolute;
-    width:18px;height:18px;
-    pointer-events:none;
-}
-.corner-ornament:before{
-    top:-1px;left:-1px;
-    border-top:2px solid var(--gold);
-    border-left:2px solid var(--gold);
-}
-.corner-ornament:after{
-    right:-1px;bottom:-1px;
-    border-right:2px solid var(--gold);
-    border-bottom:2px solid var(--gold);
-}
-.ornament-line{
-    display:flex;align-items:center;justify-content:center;
-    gap:14px;
-}
-.ornament-line:before,.ornament-line:after{
-    content:"";height:1px;flex:1;
-    background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
-.sidebar-link{
-    display:flex;align-items:center;gap:12px;
-    color:#c7c0ae;
-    border:1px solid transparent;
-    transition:.2s;
-}
-.sidebar-link:hover,.sidebar-link.active{
-    color:var(--gold2);
-    background:rgba(212,175,55,.08);
-    border-color:rgba(212,175,55,.28);
-}
-.stat-card{min-height:120px}
-.toast{
-    position:fixed;right:22px;bottom:22px;z-index:100;
-    transform:translateY(20px);opacity:0;pointer-events:none;
-    transition:.3s;
-}
-.toast.show{transform:translateY(0);opacity:1}
-.thumbnail-preview{
-    width:100%;
-    max-width:420px;
-    aspect-ratio:1200/630;
-    margin-top:12px;
-    border:1px solid rgba(212,175,55,.35);
-    border-radius:12px;
-    overflow:hidden;
-    background:#111;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-.thumbnail-preview img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-}
-.thumbnail-preview.empty::before{
-    content:"Thumbnail belum tersedia";
-    color:#766f61;
-    font-size:12px;
-}
-.mobile-menu{display:none}
-@media(max-width:767px){
-    .mobile-menu{display:flex}
-    .desktop-sidebar{display:none}
-}
-::-webkit-scrollbar{width:8px}
-::-webkit-scrollbar-track{background:#080808}
-::-webkit-scrollbar-thumb{background:#6f5b19;border-radius:8px}
-::-webkit-scrollbar-thumb:hover{background:var(--gold)}
-</style>
+    <title>Admin Event Gitar - Ibanez</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --black: #080808;
+            --black2: #111111;
+            --gold: #d4af37;
+            --gold2: #f1d875;
+            --cream: #f1e9d2;
+            --muted: #a8a18f;
+            --danger: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background:
+                radial-gradient(
+                    circle at 80% 10%,
+                    rgba(212, 175, 55, .10),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 20% 90%,
+                    rgba(212, 175, 55, .06),
+                    transparent 25%
+                ),
+                var(--black);
+            color: var(--cream);
+        }
+
+        .font-display {
+            font-family: 'Cinzel', serif;
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .border-gold {
+            border-color: var(--gold);
+        }
+
+        .btn-gold {
+            background: linear-gradient(
+                135deg,
+                var(--gold),
+                var(--gold2)
+            );
+            color: #080808;
+            border: 1px solid var(--gold);
+            transition: .25s;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, .18);
+        }
+
+        .btn-wa {
+            background: #111;
+            color: #e6c653;
+            border: 1px solid var(--gold);
+            transition: .25s;
+        }
+
+        .btn-wa:hover {
+            background: var(--gold);
+            color: #080808;
+        }
+
+        .input-style,
+        .select-style {
+            width: 100%;
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(212,175,55,.35);
+            color: var(--cream);
+            transition: .2s;
+        }
+
+        .input-style::placeholder {
+            color: #766f61;
+        }
+
+        .input-style:focus,
+        .select-style:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212,175,55,.09);
+        }
+
+        .select-style option {
+            background: #111;
+            color: var(--cream);
+        }
+
+        .card {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.035),
+                    rgba(0,0,0,.28)
+                );
+            border: 1px solid rgba(212,175,55,.25);
+            box-shadow: 0 15px 45px rgba(0,0,0,.25);
+        }
+
+        .corner-ornament {
+            position: relative;
+        }
+
+        .corner-ornament::before,
+        .corner-ornament::after {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+        }
+
+        .corner-ornament::before {
+            top: -1px;
+            left: -1px;
+            border-top: 2px solid var(--gold);
+            border-left: 2px solid var(--gold);
+        }
+
+        .corner-ornament::after {
+            right: -1px;
+            bottom: -1px;
+            border-right: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .ornament-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .ornament-line::before,
+        .ornament-line::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--gold),
+                    transparent
+                );
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #c7c0ae;
+            border: 1px solid transparent;
+            transition: .2s;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            color: var(--gold2);
+            background: rgba(212,175,55,.08);
+            border-color: rgba(212,175,55,.28);
+        }
+
+        .stat-card {
+            min-height: 120px;
+        }
+
+        .toast {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 100;
+            transform: translateY(20px);
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .thumbnail-preview {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 1200 / 630;
+            margin-top: 12px;
+            border: 1px solid rgba(212,175,55,.35);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbnail-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .thumbnail-preview.empty::before {
+            content: "Thumbnail belum tersedia";
+            color: #766f61;
+            font-size: 12px;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .url-status {
+            font-size: 11px;
+            margin-top: 6px;
+        }
+
+        .url-valid {
+            color: #4ade80;
+        }
+
+        .url-invalid {
+            color: #f87171;
+        }
+
+        @media (max-width: 767px) {
+            .mobile-menu {
+                display: flex;
+            }
+
+            .desktop-sidebar {
+                display: none;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #080808;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #6f5b19;
+            border-radius: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+    </style>
 </head>
 
 <body>
-<div class="fixed inset-0 pointer-events-none overflow-hidden opacity-20">
-    <svg class="w-full h-72" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <path d="M0 0H100V35Q50 75 0 35Z" fill="none" stroke="#d4af37" stroke-width=".5"/>
-        <path d="M0 0H100V25Q50 62 0 25Z" fill="none" stroke="#d4af37" stroke-width=".5"/>
-    </svg>
-</div>
 
-<div id="toast" class="toast card rounded-lg px-5 py-3 text-sm">
-    <span id="toastText"></span>
-</div>
+    <!-- Ornamen -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden opacity-20">
+        <svg
+            class="w-full h-72"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+        >
+            <path
+                d="M0 0H100V35Q50 75 0 35Z"
+                fill="none"
+                stroke="#d4af37"
+                stroke-width=".5"
+            />
 
-<div class="relative z-10 min-h-screen md:flex">
-    <aside class="desktop-sidebar md:w-64 bg-black/80 border-r border-gold/30 min-h-screen fixed left-0 top-0 bottom-0 p-5">
-        <div class="text-center mb-8">
-            <div class="ornament-line mb-3"><span class="text-gold">★</span></div>
-            <h1 class="text-3xl font-display font-bold tracking-[.18em] text-gold">IBANEZ</h1>
-            <p class="text-[10px] text-gray-500 mt-1 tracking-[.3em] uppercase">Admin Panel</p>
-            <div class="ornament-line mt-3"><span class="text-gold">★</span></div>
-        </div>
+            <path
+                d="M0 0H100V25Q50 62 0 25Z"
+                fill="none"
+                stroke="#d4af37"
+                stroke-width=".5"
+            />
+        </svg>
+    </div>
 
-        <nav class="space-y-2">
-            <a href="#dashboard" class="sidebar-link active rounded-lg px-4 py-3">⌂ <span>Dashboard</span></a>
-            <a href="#pengaturan" class="sidebar-link rounded-lg px-4 py-3">⚙ <span>Pengaturan</span></a>
-            <a href="#tamu" class="sidebar-link rounded-lg px-4 py-3">♟ <span>Data Tamu</span></a>
-            <a href="#broadcast" class="sidebar-link rounded-lg px-4 py-3">✉ <span>Broadcast WA</span></a>
-        </nav>
+    <!-- Toast -->
+    <div
+        id="toast"
+        class="toast card rounded-lg px-5 py-3 text-sm"
+    >
+        <span id="toastText"></span>
+    </div>
 
-        <div class="absolute left-5 right-5 bottom-6 text-center text-[10px] text-gray-600 tracking-widest uppercase">
-            Event Management
-        </div>
-    </aside>
+    <div class="relative z-10 min-h-screen md:flex">
 
-    <main class="w-full md:ml-64 p-4 sm:p-6 lg:p-10">
-        <div class="mobile-menu items-center justify-between mb-5">
-            <div>
-                <div class="font-display text-xl text-gold font-bold tracking-widest">IBANEZ</div>
-                <div class="text-[9px] text-gray-500 uppercase tracking-widest">Admin Panel</div>
+        <!-- SIDEBAR -->
+        <aside
+            class="desktop-sidebar md:w-64 bg-black/80 border-r border-gold/30 min-h-screen fixed left-0 top-0 bottom-0 p-5"
+        >
+
+            <div class="text-center mb-8">
+
+                <div class="ornament-line mb-3">
+                    <span class="text-gold">★</span>
+                </div>
+
+                <h1 class="text-3xl font-display font-bold tracking-[.18em] text-gold">
+                    IBANEZ
+                </h1>
+
+                <p class="text-[10px] text-gray-500 mt-1 tracking-[.3em] uppercase">
+                    Admin Panel
+                </p>
+
+                <div class="ornament-line mt-3">
+                    <span class="text-gold">★</span>
+                </div>
+
             </div>
-            <button onclick="document.getElementById('mobileNav').classList.toggle('hidden')"
-                    class="border border-gold/40 px-3 py-2 rounded text-gold">☰</button>
-        </div>
 
-        <div id="mobileNav" class="hidden md:hidden card rounded-lg p-3 mb-6 space-y-1">
-            <a href="#dashboard" class="sidebar-link rounded px-3 py-2">⌂ Dashboard</a>
-            <a href="#pengaturan" class="sidebar-link rounded px-3 py-2">⚙ Pengaturan</a>
-            <a href="#tamu" class="sidebar-link rounded px-3 py-2">♟ Data Tamu</a>
-            <a href="#broadcast" class="sidebar-link rounded px-3 py-2">✉ Broadcast WA</a>
-        </div>
+            <nav class="space-y-2">
 
-        <header id="dashboard" class="mb-8">
-            <p class="text-xs text-gray-500 uppercase tracking-[.25em] mb-2">Control Center</p>
-            <h2 class="text-2xl sm:text-3xl font-display font-bold text-gold">Dashboard Event Gitar</h2>
-            <div class="w-24 h-[2px] bg-gold mt-3"></div>
-        </header>
+                <a
+                    href="#dashboard"
+                    class="sidebar-link active rounded-lg px-4 py-3"
+                >
+                    ⌂
+                    <span>Dashboard</span>
+                </a>
 
-        <section id="pengaturan" class="card corner-ornament rounded-xl p-5 sm:p-8 mb-8">
-            <h3 class="text-xl font-display font-semibold text-gold mb-6">❖ Pengaturan Event</h3>
+                <a
+                    href="#pengaturan"
+                    class="sidebar-link rounded-lg px-4 py-3"
+                >
+                    ⚙
+                    <span>Pengaturan</span>
+                </a>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <a
+                    href="#tamu"
+                    class="sidebar-link rounded-lg px-4 py-3"
+                >
+                    ♟
+                    <span>Data Tamu</span>
+                </a>
+
+                <a
+                    href="#broadcast"
+                    class="sidebar-link rounded-lg px-4 py-3"
+                >
+                    ✉
+                    <span>Broadcast WA</span>
+                </a>
+
+            </nav>
+
+            <div
+                class="absolute left-5 right-5 bottom-6 text-center text-[10px] text-gray-600 tracking-widest uppercase"
+            >
+                Event Management
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <main class="w-full md:ml-64 p-4 sm:p-6 lg:p-10">
+
+            <!-- MOBILE HEADER -->
+            <div class="mobile-menu items-center justify-between mb-5">
+
                 <div>
-                    <label class="block text-sm text-gray-400 mb-2">Nama Event</label>
-                    <input id="eventName" class="input-style rounded-lg px-4 py-3" type="text">
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-400 mb-2">Merek Event</label>
-                    <input id="brandName" class="input-style rounded-lg px-4 py-3 text-gold font-bold" type="text">
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-400 mb-2">Tanggal Event</label>
-                    <input id="eventDate" class="input-style rounded-lg px-4 py-3" type="text">
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-400 mb-2">Waktu Mulai</label>
-                    <input id="eventTime" class="input-style rounded-lg px-4 py-3" type="text">
-                </div>
-                <div class="md:col-span-2">
-                    <label class="block text-sm text-gray-400 mb-2">Tempat / Lokasi</label>
-                    <input id="eventLocation" class="input-style rounded-lg px-4 py-3" type="text">
-                </div>
-                <div class="md:col-span-2">
-                    <label class="block text-sm text-gray-400 mb-2">Link Pendaftaran Event</label>
-                    <input id="eventLink" class="input-style rounded-lg px-4 py-3" type="url" placeholder="https://...">
-                    <p class="text-xs text-gray-600 mt-1">Gunakan URL HTTPS yang valid.</p>
-                </div>
-                <div class="md:col-span-2">
-                    <label class="block text-sm text-gray-400 mb-2">URL Thumbnail</label>
-                    <input id="eventThumbnail" class="input-style rounded-lg px-4 py-3"
-                           type="url"
-                           placeholder="https://contoh.com/gambar.jpg"
-                           autocomplete="off">
-                    <p class="text-xs text-gray-600 mt-1">
-                        Gunakan URL gambar HTTPS yang bisa diakses publik. JPG/PNG dengan ukuran sekitar 1200×630 px disarankan.
-                    </p>
+                    <div class="font-display text-xl text-gold font-bold tracking-widest">
+                        IBANEZ
+                    </div>
 
-                    <div id="thumbnailPreview" class="thumbnail-preview empty" aria-label="Preview thumbnail">
-                        <img id="thumbnailPreviewImage"
-                             src=""
-                             alt="Preview thumbnail"
-                             style="display:none">
+                    <div class="text-[9px] text-gray-500 uppercase tracking-widest">
+                        Admin Panel
                     </div>
                 </div>
-            </div>
 
-            <div class="flex flex-wrap gap-3 mt-6">
-                <button onclick="saveEventSettings()" class="btn-gold px-6 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider">
-                    Simpan Pengaturan
+                <button
+                    onclick="toggleMobileNav()"
+                    class="border border-gold/40 px-3 py-2 rounded text-gold"
+                >
+                    ☰
                 </button>
-                <button onclick="resetAllData()" class="border border-red-500/40 text-red-400 px-5 py-3 rounded-lg text-sm hover:bg-red-500/10">
-                    Reset Data
-                </button>
-            </div>
-        </section>
 
-        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
-            <div class="card stat-card corner-ornament rounded-xl p-6 flex items-center justify-between">
-                <div>
-                    <p class="text-xs text-gray-500 uppercase tracking-widest">Total Tamu</p>
-                    <p id="totalGuests" class="text-4xl font-display font-bold text-gold mt-2">0</p>
-                </div>
-                <div class="text-4xl text-gold opacity-40">♬</div>
             </div>
-            <div class="card stat-card corner-ornament rounded-xl p-6 flex items-center justify-between">
-                <div>
-                    <p class="text-xs text-gray-500 uppercase tracking-widest">Event</p>
-                    <p id="statEvent" class="text-lg font-semibold mt-2 truncate max-w-[180px]">-</p>
-                </div>
-                <div class="text-4xl text-gold opacity-40">◆</div>
+
+            <!-- MOBILE NAV -->
+            <div
+                id="mobileNav"
+                class="hidden md:hidden card rounded-lg p-3 mb-6 space-y-1"
+            >
+
+                <a
+                    href="#dashboard"
+                    class="sidebar-link rounded px-3 py-2"
+                >
+                    ⌂ Dashboard
+                </a>
+
+                <a
+                    href="#pengaturan"
+                    class="sidebar-link rounded px-3 py-2"
+                >
+                    ⚙ Pengaturan
+                </a>
+
+                <a
+                    href="#tamu"
+                    class="sidebar-link rounded px-3 py-2"
+                >
+                    ♟ Data Tamu
+                </a>
+
+                <a
+                    href="#broadcast"
+                    class="sidebar-link rounded px-3 py-2"
+                >
+                    ✉ Broadcast WA
+                </a>
+
             </div>
-            <div class="card stat-card corner-ornament rounded-xl p-6 flex items-center justify-between sm:col-span-2 lg:col-span-1">
-                <div>
-                    <p class="text-xs text-gray-500 uppercase tracking-widest">Status Data</p>
-                    <p class="text-lg font-semibold text-green-400 mt-2">Tersimpan</p>
-                </div>
-                <div class="text-4xl text-green-400 opacity-40">✓</div>
-            </div>
-        </section>
 
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
-            <section id="tamu" class="card corner-ornament rounded-xl p-5 sm:p-8">
-                <div class="flex items-center justify-between gap-3 mb-6">
-                    <h3 class="text-xl font-display font-semibold text-gold">❖ Data Tamu</h3>
-                    <span id="guestBadge" class="text-xs px-3 py-1 rounded-full border border-gold/30 text-gold">0 tamu</span>
+            <!-- HEADER -->
+            <header id="dashboard" class="mb-8">
+
+                <p class="text-xs text-gray-500 uppercase tracking-[.25em] mb-2">
+                    Control Center
+                </p>
+
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-gold">
+                    Dashboard Event Gitar
+                </h2>
+
+                <div class="w-24 h-[2px] bg-gold mt-3"></div>
+
+            </header>
+
+            <!-- PENGATURAN -->
+            <section
+                id="pengaturan"
+                class="card corner-ornament rounded-xl p-5 sm:p-8 mb-8"
+            >
+
+                <h3 class="text-xl font-display font-semibold text-gold mb-6">
+                    ❖ Pengaturan Event
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                    <!-- Nama -->
+                    <div>
+
+                        <label class="block text-sm text-gray-400 mb-2">
+                            Nama Event
+                        </label>
+
+                        <input
+                            id="eventName"
+                            class="input-style rounded-lg px-4 py-3"
+                            type="text"
+                        >
+
+                    </div>
+
+                    <!-- Brand -->
+                    <div>
+
+                        <label class="block text-sm text-gray-400 mb-2">
+                            Merek Event
+                        </label>
+
+                        <input
+                            id="brandName"
+                            class="input-style rounded-lg px-4 py-3 text-gold font-bold"
+                            type="text"
+                        >
+
+                    </div>
+
+                    <!-- Tanggal -->
+                    <div>
+
+                        <label class="block text-sm text-gray-400 mb-2">
+                            Tanggal Event
+                        </label>
+
+                        <input
+                            id="eventDate"
+                            class="input-style rounded-lg px-4 py-3"
+                            type="text"
+                        >
+
+                    </div>
+
+                    <!-- Waktu -->
+                    <div>
+
+                        <label class="block text-sm text-gray-400 mb-2">
+                            Waktu Mulai
+                        </label>
+
+                        <input
+                            id="eventTime"
+                            class="input-style rounded-lg px-4 py-3"
+                            type="text"
+                        >
+
+                    </div>
+
+                    <!-- Lokasi -->
+                    <div class="md:col-span-2">
+
+                        <label class="block text-sm text-gray-400 mb-2">
+                            Tempat / Lokasi
+                        </label>
+
+                        <input
+                            id="eventLocation"
+                            class="input-style rounded-lg px-4 py-3"
+                            type="text"
+                        >
+
+                    </div>
+
+                    <!-- EVENT URL -->
+                    <div class="md:col-span-2">
+
+                        <label class="block text-sm text-gray-400 mb-2">
+                            Link Pendaftaran / Halaman Event
+                        </label>
+
+                        <input
+                            id="eventLink"
+                            class="input-style rounded-lg px-4 py-3"
+                            type="url"
+                            placeholder="https://contoh.com/event"
+                            autocomplete="off"
+                        >
+
+                        <p
+                            id="eventLinkStatus"
+                            class="url-status"
+                        ></p>
+
+                        <p class="text-xs text-gray-600 mt-1">
+                            URL inilah yang akan dikirim ke WhatsApp.
+                            Thumbnail WhatsApp akan diambil dari metadata URL ini.
+                        </p>
+
+                    </div>
+
+                    <!-- THUMBNAIL -->
+                    <div class="md:col-span-2">
+
+                        <label class="block text-sm text-gray-400 mb-2">
+                            URL Thumbnail
+                        </label>
+
+                        <div class="flex flex-col sm:flex-row gap-2">
+
+                            <input
+                                id="eventThumbnail"
+                                class="input-style rounded-lg px-4 py-3"
+                                type="url"
+                                placeholder="https://contoh.com/gambar.jpg"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="button"
+                                onclick="copyThumbnailURL()"
+                                class="border border-gold/40 text-gold px-4 py-3 rounded-lg whitespace-nowrap hover:bg-gold/10"
+                            >
+                                Salin URL
+                            </button>
+
+                        </div>
+
+                        <p
+                            id="thumbnailStatus"
+                            class="url-status"
+                        ></p>
+
+                        <p class="text-xs text-gray-600 mt-1">
+                            JPG/PNG HTTPS publik. Disarankan 1200 × 630 px.
+                        </p>
+
+                        <div
+                            id="thumbnailPreview"
+                            class="thumbnail-preview empty"
+                            aria-label="Preview thumbnail"
+                        >
+
+                            <img
+                                id="thumbnailPreviewImage"
+                                src=""
+                                alt="Preview thumbnail"
+                                style="display:none"
+                            >
+
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <form id="guestForm" class="flex flex-col sm:flex-row gap-2 mb-4">
-                    <input id="guestName" class="input-style rounded-lg px-4 py-3 flex-1" placeholder="Nama tamu" autocomplete="off">
-                    <button class="btn-gold px-5 py-3 rounded-lg font-medium uppercase tracking-wider text-sm">Tambah</button>
-                </form>
+                <div class="flex flex-wrap gap-3 mt-6">
 
-                <div class="overflow-auto max-h-80 border border-gold/15 rounded-lg">
-                    <table class="w-full text-sm">
-                        <thead class="bg-gold/10 sticky top-0 backdrop-blur">
-                            <tr class="text-gold">
-                                <th class="py-3 px-4 text-left">#</th>
-                                <th class="py-3 px-4 text-left">Nama Tamu</th>
-                                <th class="py-3 px-4 text-center">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="guestList"></tbody>
-                    </table>
-                    <div id="emptyGuests" class="hidden text-center py-10 text-gray-600">Belum ada tamu.</div>
+                    <button
+                        onclick="saveEventSettings()"
+                        class="btn-gold px-6 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider"
+                    >
+                        Simpan Pengaturan
+                    </button>
+
+                    <button
+                        onclick="resetAllData()"
+                        class="border border-red-500/40 text-red-400 px-5 py-3 rounded-lg text-sm hover:bg-red-500/10"
+                    >
+                        Reset Data
+                    </button>
+
                 </div>
+
             </section>
 
-            <section id="broadcast" class="card corner-ornament rounded-xl p-5 sm:p-8">
-                <div class="flex items-center justify-between gap-3 mb-6">
-                    <h3 class="text-xl font-display font-semibold text-gold">❖ Broadcast WhatsApp</h3>
-                    <button onclick="resetTemplate()" class="text-xs text-gray-500 hover:text-gold">Template default</button>
+            <!-- STAT -->
+            <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+
+                <div
+                    class="card stat-card corner-ornament rounded-xl p-6 flex items-center justify-between"
+                >
+
+                    <div>
+
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">
+                            Total Tamu
+                        </p>
+
+                        <p
+                            id="totalGuests"
+                            class="text-4xl font-display font-bold text-gold mt-2"
+                        >
+                            0
+                        </p>
+
+                    </div>
+
+                    <div class="text-4xl text-gold opacity-40">
+                        ♬
+                    </div>
+
                 </div>
 
-                <label class="block text-sm text-gray-400 mb-2">Template Pesan</label>
-                <textarea id="waTemplate" class="input-style rounded-lg w-full h-64 px-4 py-3 text-sm font-mono resize-y"></textarea>
+                <div
+                    class="card stat-card corner-ornament rounded-xl p-6 flex items-center justify-between"
+                >
 
-                <div class="mt-6">
-                    <label class="block text-sm text-gray-400 mb-2">Kirim Undangan Kepada</label>
-                    <div class="flex flex-col sm:flex-row gap-2">
-                        <select id="selectGuest" class="select-style rounded-lg px-4 py-3 flex-1">
-                            <option value="">Pilih Tamu...</option>
-                        </select>
-                        <button onclick="sendWhatsApp()" class="btn-wa px-6 py-3 rounded-lg font-medium uppercase tracking-wider text-sm">
-                            Kirim WhatsApp
+                    <div>
+
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">
+                            Event
+                        </p>
+
+                        <p
+                            id="statEvent"
+                            class="text-lg font-semibold mt-2 truncate max-w-[180px]"
+                        >
+                            -
+                        </p>
+
+                    </div>
+
+                    <div class="text-4xl text-gold opacity-40">
+                        ◆
+                    </div>
+
+                </div>
+
+                <div
+                    class="card stat-card corner-ornament rounded-xl p-6 flex items-center justify-between sm:col-span-2 lg:col-span-1"
+                >
+
+                    <div>
+
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">
+                            Status Data
+                        </p>
+
+                        <p class="text-lg font-semibold text-green-400 mt-2">
+                            Tersimpan
+                        </p>
+
+                    </div>
+
+                    <div class="text-4xl text-green-400 opacity-40">
+                        ✓
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- CONTENT -->
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+
+                <!-- TAMU -->
+                <section
+                    id="tamu"
+                    class="card corner-ornament rounded-xl p-5 sm:p-8"
+                >
+
+                    <div class="flex items-center justify-between gap-3 mb-6">
+
+                        <h3 class="text-xl font-display font-semibold text-gold">
+                            ❖ Data Tamu
+                        </h3>
+
+                        <span
+                            id="guestBadge"
+                            class="text-xs px-3 py-1 rounded-full border border-gold/30 text-gold"
+                        >
+                            0 tamu
+                        </span>
+
+                    </div>
+
+                    <form
+                        id="guestForm"
+                        class="flex flex-col sm:flex-row gap-2 mb-4"
+                    >
+
+                        <input
+                            id="guestName"
+                            class="input-style rounded-lg px-4 py-3 flex-1"
+                            placeholder="Nama tamu"
+                            autocomplete="off"
+                        >
+
+                        <button
+                            type="submit"
+                            class="btn-gold px-5 py-3 rounded-lg font-medium uppercase tracking-wider text-sm"
+                        >
+                            Tambah
                         </button>
+
+                    </form>
+
+                    <div class="overflow-auto max-h-80 border border-gold/15 rounded-lg">
+
+                        <table class="w-full text-sm">
+
+                            <thead class="bg-gold/10 sticky top-0 backdrop-blur">
+
+                                <tr class="text-gold">
+
+                                    <th class="py-3 px-4 text-left">
+                                        #
+                                    </th>
+
+                                    <th class="py-3 px-4 text-left">
+                                        Nama Tamu
+                                    </th>
+
+                                    <th class="py-3 px-4 text-center">
+                                        Aksi
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="guestList"></tbody>
+
+                        </table>
+
+                        <div
+                            id="emptyGuests"
+                            class="hidden text-center py-10 text-gray-600"
+                        >
+                            Belum ada tamu.
+                        </div>
+
                     </div>
+
+                </section>
+
+                <!-- WHATSAPP -->
+                <section
+                    id="broadcast"
+                    class="card corner-ornament rounded-xl p-5 sm:p-8"
+                >
+
+                    <div class="flex items-center justify-between gap-3 mb-6">
+
+                        <h3 class="text-xl font-display font-semibold text-gold">
+                            ❖ Broadcast WhatsApp
+                        </h3>
+
+                        <button
+                            onclick="resetTemplate()"
+                            class="text-xs text-gray-500 hover:text-gold"
+                        >
+                            Template default
+                        </button>
+
+                    </div>
+
+                    <label class="block text-sm text-gray-400 mb-2">
+                        Template Pesan
+                    </label>
+
+                    <textarea
+                        id="waTemplate"
+                        class="input-style rounded-lg w-full h-64 px-4 py-3 text-sm font-mono resize-y"
+                    ></textarea>
+
+                    <div class="mt-6">
+
+                        <label class="block text-sm text-gray-400 mb-2">
+                            Kirim Undangan Kepada
+                        </label>
+
+                        <div class="flex flex-col sm:flex-row gap-2">
+
+                            <select
+                                id="selectGuest"
+                                class="select-style rounded-lg px-4 py-3 flex-1"
+                            >
+                                <option value="">
+                                    Pilih Tamu...
+                                </option>
+                            </select>
+
+                            <button
+                                onclick="sendWhatsApp()"
+                                class="btn-wa px-6 py-3 rounded-lg font-medium uppercase tracking-wider text-sm"
+                            >
+                                Kirim WhatsApp
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-5 p-4 rounded-lg bg-gold/5 border border-gold/10">
+
+                        <p class="text-xs text-gray-500 leading-relaxed">
+
+                            Placeholder:
+
+                            <span class="text-gold">
+                                [Nama Teman]
+                            </span>,
+
+                            <span class="text-gold">
+                                [Nama Event]
+                            </span>,
+
+                            <span class="text-gold">
+                                [Tanggal Event]
+                            </span>,
+
+                            <span class="text-gold">
+                                [Waktu Mulai]
+                            </span>,
+
+                            <span class="text-gold">
+                                [Nama Tempat / Lokasi]
+                            </span>,
+
+                            <span class="text-gold">
+                                [Masukkan Link Event]
+                            </span>.
+
+                        </p>
+
+                    </div>
+
+                    <!-- INFO THUMBNAIL -->
+                    <div class="mt-5 p-4 rounded-lg border border-gold/20 bg-black/30">
+
+                        <p class="text-xs text-gray-400 leading-relaxed">
+
+                            <span class="text-gold font-semibold">
+                                ℹ Thumbnail WhatsApp
+                            </span>
+
+                            <br><br>
+
+                            Thumbnail tidak dikirim langsung oleh halaman
+                            admin. WhatsApp akan mengambil thumbnail dari
+                            halaman event berdasarkan metadata
+                            <b>og:image</b>.
+
+                            <br><br>
+
+                            Pastikan halaman event pada
+                            <b>Link Event</b> mempunyai:
+
+                            <br>
+
+                            <span class="text-gold">
+                                og:title
+                            </span><br>
+
+                            <span class="text-gold">
+                                og:description
+                            </span><br>
+
+                            <span class="text-gold">
+                                og:image
+                            </span>
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="text-center py-10">
+
+                <div class="ornament-line max-w-xs mx-auto mb-4">
+                    <span class="text-gold">
+                        ✦
+                    </span>
                 </div>
 
-                <div class="mt-5 p-4 rounded-lg bg-gold/5 border border-gold/10">
-                    <p class="text-xs text-gray-500 leading-relaxed">
-                        Placeholder yang tersedia:
-                        <span class="text-gold">[Nama Teman]</span>,
-                        <span class="text-gold">[Nama Event]</span>,
-                        <span class="text-gold">[Tanggal Event]</span>,
-                        <span class="text-gold">[Waktu Mulai]</span>,
-                        <span class="text-gold">[Nama Tempat / Lokasi]</span>,
-                        <span class="text-gold">[Masukkan Link Event]</span>.
-                    </p>
-                </div>
-            </section>
-        </div>
+                <p class="text-gray-600 text-xs tracking-[.2em] uppercase">
+                    Ibanez Admin Panel © 2026
+                </p>
 
-        <footer class="text-center py-10">
-            <div class="ornament-line max-w-xs mx-auto mb-4"><span class="text-gold">✦</span></div>
-            <p class="text-gray-600 text-xs tracking-[.2em] uppercase">Ibanez Admin Panel © 2026</p>
-        </footer>
-    </main>
-</div>
+            </footer>
 
-<script>
-"use strict";
+        </main>
 
-const STORAGE = {
-    events: "eventSettings",
-    guests: "guestList",
-    template: "waTemplate"
-};
+    </div>
 
-const defaultEvents = {
-    name: "Ibanez Guitar Showdown 2024",
-    brand: "Ibanez",
-    date: "Sabtu, 15 Juni 2024",
-    time: "14:00 WIB",
-    location: "Hall A JCC Senayan",
-    link: "https://subastianyanuke.github.io/undangan-event/",
-    thumbnail: "https://subastianyanuke.github.io/undangan-event/ft.jpg"
-};
+    <script>
+        "use strict";
 
-const defaultGuests = [
-    {name:"Budi Santoso"},
-    {name:"Slash"},
-    {name:"Eddie Van Halen"}
-];
+        /*
+        ============================================================
+        STORAGE
+        ============================================================
+        */
 
-const defaultTemplate = `Halo [Nama Teman],
+        const STORAGE = {
+            events: "eventSettings",
+            guests: "guestList",
+            template: "waTemplate"
+        };
 
-Apa kabar? Aku mau ngajak kamu seru-seruan bareng di event gitar kami, [Nama Event]. Acara ini bakal seru banget karena ada penampilan spesial dan sharing seputar gitar.
 
-Catat waktunya ya:
-Hari/Tanggal: [Tanggal Event]
-Jam: [Waktu Mulai] - selesai
-Tempat: [Nama Tempat / Lokasi]
+        /*
+        ============================================================
+        DEFAULT EVENT
+        ============================================================
+        */
 
-Kamu bisa cek detail lengkap dan daftar hadir di link ini:
+        const defaultEvents = {
+            name: "Ibanez Guitar Showdown 2024",
+
+            brand: "Ibanez",
+
+            date: "Sabtu, 15 Juni 2024",
+
+            time: "14:00 WIB",
+
+            location: "Hall A JCC Senayan",
+
+            link: "https://subastianyanuke.github.io/undangan-event/",
+
+            thumbnail: "https://subastianyanuke.github.io/undangan-event/ft.jpg"
+        };
+
+
+        /*
+        ============================================================
+        DEFAULT GUEST
+        ============================================================
+        */
+
+        const defaultGuests = [
+            {
+                name: "Budi Santoso"
+            },
+            {
+                name: "Slash"
+            },
+            {
+                name: "Eddie Van Halen"
+            }
+        ];
+
+
+        /*
+        ============================================================
+        DEFAULT WHATSAPP TEMPLATE
+        ============================================================
+        */
+
+        const defaultTemplate =
+`Halo [Nama Teman],
+
+Apa kabar?
+
+Aku mau mengajak kamu untuk hadir di event gitar:
+
+[Nama Event]
+
+Catat waktunya:
+
+Hari/Tanggal:
+[Tanggal Event]
+
+Jam:
+[Waktu Mulai]
+
+Tempat:
+[Nama Tempat / Lokasi]
+
+Kamu bisa melihat detail lengkap event dan melakukan pendaftaran melalui link berikut:
+
 [Masukkan Link Event]
 
-Ditunggu kehadiran dan keseruannya di sana! Terima kasih.`;
+Ditunggu kehadirannya!
 
-let events = loadJSON(STORAGE.events, defaultEvents);
-let guests = loadJSON(STORAGE.guests, defaultGuests);
-let waTemplate = localStorage.getItem(STORAGE.template) || defaultTemplate;
-
-function loadJSON(key, fallback){
-    try{
-        const value = JSON.parse(localStorage.getItem(key));
-        return value ?? structuredClone(fallback);
-    }catch(error){
-        return structuredClone(fallback);
-    }
-}
-
-function saveJSON(key,value){
-    localStorage.setItem(key,JSON.stringify(value));
-}
-
-function escapeHTML(value){
-    return String(value)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-}
-
-function showToast(message){
-    const toast=document.getElementById("toast");
-    document.getElementById("toastText").textContent=message;
-    toast.classList.add("show");
-    clearTimeout(showToast.timer);
-    showToast.timer=setTimeout(()=>toast.classList.remove("show"),2500);
-}
-
-function updateThumbnailPreview(url){
-    const preview=document.getElementById("thumbnailPreview");
-    const image=document.getElementById("thumbnailPreviewImage");
-    const cleanUrl=(url || "").trim();
-
-    if(!cleanUrl){
-        image.removeAttribute("src");
-        image.style.display="none";
-        preview.classList.add("empty");
-        return;
-    }
-
-    image.onload=()=>{
-        image.style.display="block";
-        preview.classList.remove("empty");
-    };
-
-    image.onerror=()=>{
-        image.removeAttribute("src");
-        image.style.display="none";
-        preview.classList.add("empty");
-    };
-
-    image.src=cleanUrl;
-}
-
-function renderSettings(){
-    document.getElementById("eventName").value=events.name || "";
-    document.getElementById("brandName").value=events.brand || "";
-    document.getElementById("eventDate").value=events.date || "";
-    document.getElementById("eventTime").value=events.time || "";
-    document.getElementById("eventLocation").value=events.location || "";
-    document.getElementById("eventLink").value=events.link || "";
-    document.getElementById("eventThumbnail").value=events.thumbnail || "";
-    document.getElementById("waTemplate").value=waTemplate;
-    document.getElementById("statEvent").textContent=events.name || "-";
-    updateThumbnailPreview(events.thumbnail);
-}
-
-function renderGuests(){
-    const list=document.getElementById("guestList");
-    const select=document.getElementById("selectGuest");
-    const empty=document.getElementById("emptyGuests");
-
-    list.innerHTML="";
-    select.innerHTML='<option value="">Pilih Tamu...</option>';
-
-    empty.classList.toggle("hidden",guests.length>0);
-
-    guests.forEach((guest,index)=>{
-        const tr=document.createElement("tr");
-        tr.className="border-t border-gold/10 hover:bg-gold/5";
-        tr.innerHTML=`
-            <td class="py-3 px-4 text-gray-500">${index+1}</td>
-            <td class="py-3 px-4">${escapeHTML(guest.name)}</td>
-            <td class="py-3 px-4 text-center">
-                <button type="button" data-delete="${index}" class="text-red-400 hover:text-red-300 text-xs font-bold uppercase">
-                    Hapus
-                </button>
-            </td>`;
-        list.appendChild(tr);
-
-        const option=document.createElement("option");
-        option.value=index;
-        option.textContent=guest.name;
-        select.appendChild(option);
-    });
-
-    document.getElementById("totalGuests").textContent=guests.length;
-    document.getElementById("guestBadge").textContent=`${guests.length} tamu`;
-}
-
-document.getElementById("eventThumbnail").addEventListener("input",(e)=>{
-    updateThumbnailPreview(e.target.value);
-});
+Terima kasih.`;
 
 
-function saveEventSettings(){
-    events={
-        name:document.getElementById("eventName").value.trim(),
-        brand:document.getElementById("brandName").value.trim(),
-        date:document.getElementById("eventDate").value.trim(),
-        time:document.getElementById("eventTime").value.trim(),
-        location:document.getElementById("eventLocation").value.trim(),
-        link:document.getElementById("eventLink").value.trim(),
-        thumbnail:document.getElementById("eventThumbnail").value.trim()
-    };
+        /*
+        ============================================================
+        LOAD DATA
+        ============================================================
+        */
 
-    saveJSON(STORAGE.events,events);
-    updateMeta();
-    renderSettings();
-    showToast("Pengaturan event berhasil disimpan.");
-}
+        let events = loadJSON(
+            STORAGE.events,
+            defaultEvents
+        );
 
-function updateMeta(){
-    document.querySelector('meta[property="og:title"]').content=events.name || "Event Gitar";
-    document.querySelector('meta[property="og:description"]').content=
-        `Acara: ${events.name || "Event Gitar"} di ${events.location || "-"}`;
+        let guests = loadJSON(
+            STORAGE.guests,
+            defaultGuests
+        );
 
-    if(events.thumbnail){
-        document.querySelector('meta[property="og:image"]').content=events.thumbnail;
+        let waTemplate =
+            localStorage.getItem(STORAGE.template)
+            || defaultTemplate;
 
-        const secure=document.querySelector('meta[property="og:image:secure_url"]');
-        if(secure) secure.content=events.thumbnail;
 
-        const twitter=document.querySelector('meta[name="twitter:image"]');
-        if(twitter) twitter.content=events.thumbnail;
-    }
+        /*
+        ============================================================
+        LOAD JSON
+        ============================================================
+        */
 
-    if(events.link){
-        document.querySelector('meta[property="og:url"]').content=events.link;
-    }
-}
+        function loadJSON(key, fallback) {
 
-function addGuest(name){
-    name=(name ?? document.getElementById("guestName").value).trim();
+            try {
 
-    if(!name){
-        showToast("Nama tamu harus diisi.");
-        document.getElementById("guestName").focus();
-        return;
-    }
+                const stored =
+                    localStorage.getItem(key);
 
-    if(guests.some(g=>g.name.toLowerCase()===name.toLowerCase())){
-        showToast("Nama tamu sudah ada.");
-        return;
-    }
+                if (!stored) {
 
-    guests.push({name});
-    saveJSON(STORAGE.guests,guests);
-    document.getElementById("guestName").value="";
-    renderGuests();
-    showToast("Tamu berhasil ditambahkan.");
-}
+                    return structuredClone(fallback);
 
-function deleteGuest(index){
-    if(index<0 || index>=guests.length) return;
-    const name=guests[index].name;
-    if(!confirm(`Hapus tamu "${name}"?`)) return;
+                }
 
-    guests.splice(index,1);
-    saveJSON(STORAGE.guests,guests);
-    renderGuests();
-    showToast("Tamu berhasil dihapus.");
-}
+                const parsed =
+                    JSON.parse(stored);
 
-function resetTemplate(){
-    if(!confirm("Kembalikan template WhatsApp ke template default?")) return;
-    waTemplate=defaultTemplate;
-    document.getElementById("waTemplate").value=waTemplate;
-    localStorage.setItem(STORAGE.template,waTemplate);
-    showToast("Template berhasil direset.");
-}
+                return parsed ?? structuredClone(fallback);
 
-function sendWhatsApp(){
-    const selected=document.getElementById("selectGuest").value;
+            } catch (error) {
 
-    if(selected===""){
-        showToast("Silakan pilih tamu terlebih dahulu.");
-        return;
-    }
+                console.error(
+                    "Gagal membaca data:",
+                    error
+                );
 
-    const guest=guests[Number(selected)];
-    if(!guest) return;
+                return structuredClone(fallback);
+            }
+        }
 
-    waTemplate=document.getElementById("waTemplate").value;
-    localStorage.setItem(STORAGE.template,waTemplate);
 
-    const replacements={
-        "[Nama Teman]":guest.name,
-        "[Nama Event]":events.name,
-        "[Tanggal Event]":events.date,
-        "[Waktu Mulai]":events.time,
-        "[Nama Tempat / Lokasi]":events.location,
-        "[Masukkan Link Event]":events.link
-    };
+        /*
+        ============================================================
+        SAVE JSON
+        ============================================================
+        */
 
-    let message=waTemplate;
-    Object.entries(replacements).forEach(([key,value])=>{
-        message=message.split(key).join(value || "-");
-    });
+        function saveJSON(key, value) {
 
-    const waUrl=`https://wa.me/?text=${encodeURIComponent(message)}`;
-    window.open(waUrl,"_blank","noopener,noreferrer");
-}
+            localStorage.setItem(
+                key,
+                JSON.stringify(value)
+            );
+        }
 
-function resetAllData(){
-    if(!confirm("Reset semua data event, tamu, dan template ke bawaan?")) return;
 
-    events=structuredClone(defaultEvents);
-    guests=structuredClone(defaultGuests);
-    waTemplate=defaultTemplate;
+        /*
+        ============================================================
+        ESCAPE HTML
+        ============================================================
+        */
 
-    saveJSON(STORAGE.events,events);
-    saveJSON(STORAGE.guests,guests);
-    localStorage.setItem(STORAGE.template,waTemplate);
+        function escapeHTML(value) {
 
-    renderSettings();
-    renderGuests();
-    updateMeta();
-    showToast("Semua data telah direset.");
-}
+            return String(value)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#039;");
+        }
 
-document.getElementById("guestForm").addEventListener("submit",(e)=>{
-    e.preventDefault();
-    addGuest();
-});
 
-document.getElementById("guestList").addEventListener("click",(e)=>{
-    const button=e.target.closest("[data-delete]");
-    if(button) deleteGuest(Number(button.dataset.delete));
-});
+        /*
+        ============================================================
+        TOAST
+        ============================================================
+        */
 
-document.getElementById("waTemplate").addEventListener("input",(e)=>{
-    waTemplate=e.target.value;
-    localStorage.setItem(STORAGE.template,waTemplate);
-});
+        function showToast(message) {
 
-document.querySelectorAll(".sidebar-link").forEach(link=>{
-    link.addEventListener("click",()=>{
-        document.querySelectorAll(".sidebar-link").forEach(x=>x.classList.remove("active"));
-        link.classList.add("active");
-    });
-});
+            const toast =
+                document.getElementById("toast");
 
-renderSettings();
-renderGuests();
-updateMeta();
-</script>
+            const text =
+                document.getElementById("toastText");
+
+            text.textContent = message;
+
+            toast.classList.add("show");
+
+            clearTimeout(showToast.timer);
+
+            showToast.timer =
+                setTimeout(() => {
+
+                    toast.classList.remove("show");
+
+                }, 2500);
+        }
+
+
+        /*
+        ============================================================
+        VALIDATE URL
+        ============================================================
+        */
+
+        function isValidHTTPS(url) {
+
+            try {
+
+                const parsed =
+                    new URL(url);
+
+                return parsed.protocol === "https:";
+
+            } catch {
+
+                return false;
+            }
+        }
+
+
+        /*
+        ============================================================
+        UPDATE THUMBNAIL
+        ============================================================
+        */
+
+        function updateThumbnailPreview(url) {
+
+            const preview =
+                document.getElementById(
+                    "thumbnailPreview"
+                );
+
+            const image =
+                document.getElementById(
+                    "thumbnailPreviewImage"
+                );
+
+            const status =
+                document.getElementById(
+                    "thumbnailStatus"
+                );
+
+            const cleanURL =
+                (url || "").trim();
+
+
+            if (!cleanURL) {
+
+                image.removeAttribute("src");
+
+                image.style.display = "none";
+
+                preview.classList.add("empty");
+
+                status.textContent =
+                    "Masukkan URL thumbnail HTTPS.";
+
+                status.className =
+                    "url-status";
+
+                return;
+            }
+
+
+            if (!isValidHTTPS(cleanURL)) {
+
+                image.removeAttribute("src");
+
+                image.style.display = "none";
+
+                preview.classList.add("empty");
+
+                status.textContent =
+                    "URL thumbnail harus menggunakan HTTPS.";
+
+                status.className =
+                    "url-status url-invalid";
+
+                return;
+            }
+
+
+            status.textContent =
+                "Memuat thumbnail...";
+
+            status.className =
+                "url-status";
+
+
+            image.onload = function () {
+
+                image.style.display = "block";
+
+                preview.classList.remove("empty");
+
+                status.textContent =
+                    "✓ Thumbnail berhasil dimuat.";
+
+                status.className =
+                    "url-status url-valid";
+            };
+
+
+            image.onerror = function () {
+
+                image.removeAttribute("src");
+
+                image.style.display = "none";
+
+                preview.classList.add("empty");
+
+                status.textContent =
+                    "✕ Gambar tidak dapat diakses. Pastikan URL publik.";
+
+                status.className =
+                    "url-status url-invalid";
+            };
+
+
+            image.src = cleanURL;
+        }
+
+
+        /*
+        ============================================================
+        EVENT URL STATUS
+        ============================================================
+        */
+
+        function updateEventLinkStatus(url) {
+
+            const status =
+                document.getElementById(
+                    "eventLinkStatus"
+                );
+
+            const cleanURL =
+                (url || "").trim();
+
+
+            if (!cleanURL) {
+
+                status.textContent =
+                    "";
+
+                return;
+            }
+
+
+            if (isValidHTTPS(cleanURL)) {
+
+                status.textContent =
+                    "✓ URL HTTPS valid.";
+
+                status.className =
+                    "url-status url-valid";
+
+            } else {
+
+                status.textContent =
+                    "✕ URL harus menggunakan HTTPS yang valid.";
+
+                status.className =
+                    "url-status url-invalid";
+            }
+        }
+
+
+        /*
+        ============================================================
+        RENDER SETTINGS
+        ============================================================
+        */
+
+        function renderSettings() {
+
+            document.getElementById(
+                "eventName"
+            ).value =
+                events.name || "";
+
+
+            document.getElementById(
+                "brandName"
+            ).value =
+                events.brand || "";
+
+
+            document.getElementById(
+                "eventDate"
+            ).value =
+                events.date || "";
+
+
+            document.getElementById(
+                "eventTime"
+            ).value =
+                events.time || "";
+
+
+            document.getElementById(
+                "eventLocation"
+            ).value =
+                events.location || "";
+
+
+            document.getElementById(
+                "eventLink"
+            ).value =
+                events.link || "";
+
+
+            document.getElementById(
+                "eventThumbnail"
+            ).value =
+                events.thumbnail || "";
+
+
+            document.getElementById(
+                "waTemplate"
+            ).value =
+                waTemplate;
+
+
+            document.getElementById(
+                "statEvent"
+            ).textContent =
+                events.name || "-";
+
+
+            updateThumbnailPreview(
+                events.thumbnail
+            );
+
+
+            updateEventLinkStatus(
+                events.link
+            );
+        }
+
+
+        /*
+        ============================================================
+        RENDER GUEST
+        ============================================================
+        */
+
+        function renderGuests() {
+
+            const list =
+                document.getElementById(
+                    "guestList"
+                );
+
+            const select =
+                document.getElementById(
+                    "selectGuest"
+                );
+
+            const empty =
+                document.getElementById(
+                    "emptyGuests"
+                );
+
+
+            list.innerHTML = "";
+
+            select.innerHTML =
+                `<option value="">Pilih Tamu...</option>`;
+
+
+            empty.classList.toggle(
+                "hidden",
+                guests.length > 0
+            );
+
+
+            guests.forEach(
+                (guest, index) => {
+
+                    const tr =
+                        document.createElement("tr");
+
+                    tr.className =
+                        "border-t border-gold/10 hover:bg-gold/5";
+
+
+                    tr.innerHTML = `
+                        <td class="py-3 px-4 text-gray-500">
+                            ${index + 1}
+                        </td>
+
+                        <td class="py-3 px-4">
+                            ${escapeHTML(guest.name)}
+                        </td>
+
+                        <td class="py-3 px-4 text-center">
+
+                            <button
+                                type="button"
+                                data-delete="${index}"
+                                class="text-red-400 hover:text-red-300 text-xs font-bold uppercase"
+                            >
+                                Hapus
+                            </button>
+
+                        </td>
+                    `;
+
+
+                    list.appendChild(tr);
+
+
+                    const option =
+                        document.createElement("option");
+
+                    option.value = index;
+
+                    option.textContent =
+                        guest.name;
+
+                    select.appendChild(option);
+                }
+            );
+
+
+            document.getElementById(
+                "totalGuests"
+            ).textContent =
+                guests.length;
+
+
+            document.getElementById(
+                "guestBadge"
+            ).textContent =
+                `${guests.length} tamu`;
+        }
+
+
+        /*
+        ============================================================
+        SAVE EVENT
+        ============================================================
+        */
+
+        function saveEventSettings() {
+
+            const eventName =
+                document.getElementById(
+                    "eventName"
+                ).value.trim();
+
+
+            const brandName =
+                document.getElementById(
+                    "brandName"
+                ).value.trim();
+
+
+            const eventDate =
+                document.getElementById(
+                    "eventDate"
+                ).value.trim();
+
+
+            const eventTime =
+                document.getElementById(
+                    "eventTime"
+                ).value.trim();
+
+
+            const eventLocation =
+                document.getElementById(
+                    "eventLocation"
+                ).value.trim();
+
+
+            const eventLink =
+                document.getElementById(
+                    "eventLink"
+                ).value.trim();
+
+
+            const eventThumbnail =
+                document.getElementById(
+                    "eventThumbnail"
+                ).value.trim();
+
+
+            if (
+                eventLink &&
+                !isValidHTTPS(eventLink)
+            ) {
+
+                showToast(
+                    "Link event harus berupa URL HTTPS yang valid."
+                );
+
+                return;
+            }
+
+
+            if (
+                eventThumbnail &&
+                !isValidHTTPS(eventThumbnail)
+            ) {
+
+                showToast(
+                    "URL thumbnail harus berupa HTTPS."
+                );
+
+                return;
+            }
+
+
+            events = {
+
+                name: eventName,
+
+                brand: brandName,
+
+                date: eventDate,
+
+                time: eventTime,
+
+                location: eventLocation,
+
+                link: eventLink,
+
+                thumbnail: eventThumbnail
+            };
+
+
+            saveJSON(
+                STORAGE.events,
+                events
+            );
+
+
+            updateMeta();
+
+            renderSettings();
+
+            showToast(
+                "Pengaturan event berhasil disimpan."
+            );
+        }
+
+
+        /*
+        ============================================================
+        UPDATE META ADMIN
+        ============================================================
+        */
+
+        function updateMeta() {
+
+            const title =
+                document.querySelector(
+                    'meta[property="og:title"]'
+                );
+
+            const description =
+                document.querySelector(
+                    'meta[property="og:description"]'
+                );
+
+            const image =
+                document.querySelector(
+                    'meta[property="og:image"]'
+                );
+
+            const secureImage =
+                document.querySelector(
+                    'meta[property="og:image:secure_url"]'
+                );
+
+            const ogURL =
+                document.querySelector(
+                    'meta[property="og:url"]'
+                );
+
+            const twitterImage =
+                document.querySelector(
+                    'meta[name="twitter:image"]'
+                );
+
+
+            if (title) {
+
+                title.content =
+                    events.name || "Event Gitar";
+            }
+
+
+            if (description) {
+
+                description.content =
+                    `Acara ${events.name || "Event Gitar"} di ${events.location || "-"}`;
+            }
+
+
+            if (image && events.thumbnail) {
+
+                image.content =
+                    events.thumbnail;
+            }
+
+
+            if (
+                secureImage &&
+                events.thumbnail
+            ) {
+
+                secureImage.content =
+                    events.thumbnail;
+            }
+
+
+            if (
+                twitterImage &&
+                events.thumbnail
+            ) {
+
+                twitterImage.content =
+                    events.thumbnail;
+            }
+
+
+            if (
+                ogURL &&
+                events.link
+            ) {
+
+                ogURL.content =
+                    events.link;
+            }
+        }
+
+
+        /*
+        ============================================================
+        ADD GUEST
+        ============================================================
+        */
+
+        function addGuest() {
+
+            const input =
+                document.getElementById(
+                    "guestName"
+                );
+
+            const name =
+                input.value.trim();
+
+
+            if (!name) {
+
+                showToast(
+                    "Nama tamu harus diisi."
+                );
+
+                input.focus();
+
+                return;
+            }
+
+
+            const alreadyExists =
+                guests.some(
+                    guest =>
+                        guest.name.toLowerCase()
+                        === name.toLowerCase()
+                );
+
+
+            if (alreadyExists) {
+
+                showToast(
+                    "Nama tamu sudah ada."
+                );
+
+                return;
+            }
+
+
+            guests.push({
+                name: name
+            });
+
+
+            saveJSON(
+                STORAGE.guests,
+                guests
+            );
+
+
+            input.value = "";
+
+            renderGuests();
+
+            showToast(
+                "Tamu berhasil ditambahkan."
+            );
+        }
+
+
+        /*
+        ============================================================
+        DELETE GUEST
+        ============================================================
+        */
+
+        function deleteGuest(index) {
+
+            if (
+                index < 0 ||
+                index >= guests.length
+            ) {
+                return;
+            }
+
+
+            const name =
+                guests[index].name;
+
+
+            if (
+                !confirm(
+                    `Hapus tamu "${name}"?`
+                )
+            ) {
+                return;
+            }
+
+
+            guests.splice(
+                index,
+                1
+            );
+
+
+            saveJSON(
+                STORAGE.guests,
+                guests
+            );
+
+
+            renderGuests();
+
+            showToast(
+                "Tamu berhasil dihapus."
+            );
+        }
+
+
+        /*
+        ============================================================
+        RESET TEMPLATE
+        ============================================================
+        */
+
+        function resetTemplate() {
+
+            if (
+                !confirm(
+                    "Kembalikan template WhatsApp ke template default?"
+                )
+            ) {
+                return;
+            }
+
+
+            waTemplate =
+                defaultTemplate;
+
+
+            document.getElementById(
+                "waTemplate"
+            ).value =
+                waTemplate;
+
+
+            localStorage.setItem(
+                STORAGE.template,
+                waTemplate
+            );
+
+
+            showToast(
+                "Template berhasil direset."
+            );
+        }
+
+
+        /*
+        ============================================================
+        SEND WHATSAPP
+        ============================================================
+        */
+
+        function sendWhatsApp() {
+
+            const selected =
+                document.getElementById(
+                    "selectGuest"
+                ).value;
+
+
+            if (selected === "") {
+
+                showToast(
+                    "Silakan pilih tamu terlebih dahulu."
+                );
+
+                return;
+            }
+
+
+            const guest =
+                guests[Number(selected)];
+
+
+            if (!guest) {
+                return;
+            }
+
+
+            const link =
+                events.link || "";
+
+
+            if (!link) {
+
+                showToast(
+                    "Link event belum diisi."
+                );
+
+                return;
+            }
+
+
+            if (!isValidHTTPS(link)) {
+
+                showToast(
+                    "Link event harus menggunakan HTTPS."
+                );
+
+                return;
+            }
+
+
+            /*
+            ========================================================
+            SIMPAN TEMPLATE
+            ========================================================
+            */
+
+            waTemplate =
+                document.getElementById(
+                    "waTemplate"
+                ).value;
+
+
+            localStorage.setItem(
+                STORAGE.template,
+                waTemplate
+            );
+
+
+            /*
+            ========================================================
+            REPLACEMENT
+            ========================================================
+            */
+
+            const replacements = {
+
+                "[Nama Teman]":
+                    guest.name,
+
+                "[Nama Event]":
+                    events.name || "-",
+
+                "[Tanggal Event]":
+                    events.date || "-",
+
+                "[Waktu Mulai]":
+                    events.time || "-",
+
+                "[Nama Tempat / Lokasi]":
+                    events.location || "-",
+
+                "[Masukkan Link Event]":
+                    link
+            };
+
+
+            let message =
+                waTemplate;
+
+
+            Object.entries(
+                replacements
+            ).forEach(
+                ([key, value]) => {
+
+                    message =
+                        message
+                            .split(key)
+                            .join(value);
+                }
+            );
+
+
+            /*
+            ========================================================
+            PENTING:
+            Pastikan URL event berada sebagai URL langsung
+            di dalam pesan.
+            ========================================================
+            */
+
+            if (
+                !message.includes(link)
+            ) {
+
+                message +=
+                    `\n\n${link}`;
+            }
+
+
+            /*
+            ========================================================
+            WHATSAPP URL
+            ========================================================
+            */
+
+            const waURL =
+                "https://wa.me/?text=" +
+                encodeURIComponent(message);
+
+
+            /*
+            ========================================================
+            BUKA WHATSAPP
+            ========================================================
+            */
+
+            window.open(
+                waURL,
+                "_blank",
+                "noopener,noreferrer"
+            );
+        }
+
+
+        /*
+        ============================================================
+        COPY THUMBNAIL URL
+        ============================================================
+        */
+
+        async function copyThumbnailURL() {
+
+            const input =
+                document.getElementById(
+                    "eventThumbnail"
+                );
+
+
+            const url =
+                input.value.trim();
+
+
+            if (!url) {
+
+                showToast(
+                    "URL thumbnail belum diisi."
+                );
+
+                return;
+            }
+
+
+            try {
+
+                await navigator.clipboard.writeText(
+                    url
+                );
+
+
+                showToast(
+                    "URL thumbnail berhasil disalin."
+                );
+
+            } catch {
+
+                input.select();
+
+                document.execCommand(
+                    "copy"
+                );
+
+                showToast(
+                    "URL thumbnail berhasil disalin."
+                );
+            }
+        }
+
+
+        /*
+        ============================================================
+        RESET ALL
+        ============================================================
+        */
+
+        function resetAllData() {
+
+            if (
+                !confirm(
+                    "Reset semua data event, tamu, dan template ke bawaan?"
+                )
+            ) {
+                return;
+            }
+
+
+            events =
+                structuredClone(
+                    defaultEvents
+                );
+
+
+            guests =
+                structuredClone(
+                    defaultGuests
+                );
+
+
+            waTemplate =
+                defaultTemplate;
+
+
+            saveJSON(
+                STORAGE.events,
+                events
+            );
+
+
+            saveJSON(
+                STORAGE.guests,
+                guests
+            );
+
+
+            localStorage.setItem(
+                STORAGE.template,
+                waTemplate
+            );
+
+
+            renderSettings();
+
+            renderGuests();
+
+            updateMeta();
+
+
+            showToast(
+                "Semua data telah direset."
+            );
+        }
+
+
+        /*
+        ============================================================
+        MOBILE NAV
+        ============================================================
+        */
+
+        function toggleMobileNav() {
+
+            const nav =
+                document.getElementById(
+                    "mobileNav"
+                );
+
+            nav.classList.toggle(
+                "hidden"
+            );
+        }
+
+
+        /*
+        ============================================================
+        EVENT LISTENERS
+        ============================================================
+        */
+
+        document
+            .getElementById("eventThumbnail")
+            .addEventListener(
+                "input",
+                function(event) {
+
+                    updateThumbnailPreview(
+                        event.target.value
+                    );
+                }
+            );
+
+
+        document
+            .getElementById("eventLink")
+            .addEventListener(
+                "input",
+                function(event) {
+
+                    updateEventLinkStatus(
+                        event.target.value
+                    );
+                }
+            );
+
+
+        document
+            .getElementById("guestForm")
+            .addEventListener(
+                "submit",
+                function(event) {
+
+                    event.preventDefault();
+
+                    addGuest();
+                }
+            );
+
+
+        document
+            .getElementById("guestList")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    const button =
+                        event.target.closest(
+                            "[data-delete]"
+                        );
+
+
+                    if (button) {
+
+                        deleteGuest(
+                            Number(
+                                button.dataset.delete
+                            )
+                        );
+                    }
+                }
+            );
+
+
+        document
+            .getElementById("waTemplate")
+            .addEventListener(
+                "input",
+                function(event) {
+
+                    waTemplate =
+                        event.target.value;
+
+
+                    localStorage.setItem(
+                        STORAGE.template,
+                        waTemplate
+                    );
+                }
+            );
+
+
+        /*
+        ============================================================
+        SIDEBAR ACTIVE
+        ============================================================
+        */
+
+        document
+            .querySelectorAll(".sidebar-link")
+            .forEach(
+                link => {
+
+                    link.addEventListener(
+                        "click",
+                        function() {
+
+                            document
+                                .querySelectorAll(
+                                    ".sidebar-link"
+                                )
+                                .forEach(
+                                    item =>
+                                        item.classList.remove(
+                                            "active"
+                                        )
+                                );
+
+
+                            link.classList.add(
+                                "active"
+                            );
+                        }
+                    );
+                }
+            );
+
+
+        /*
+        ============================================================
+        INITIAL RENDER
+        ============================================================
+        */
+
+        renderSettings();
+
+        renderGuests();
+
+        updateMeta();
+
+    </script>
+
 </body>
 </html>
