@@ -117,6 +117,30 @@ body{
     transition:.3s;
 }
 .toast.show{transform:translateY(0);opacity:1}
+.thumbnail-preview{
+    width:100%;
+    max-width:420px;
+    aspect-ratio:1200/630;
+    margin-top:12px;
+    border:1px solid rgba(212,175,55,.35);
+    border-radius:12px;
+    overflow:hidden;
+    background:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.thumbnail-preview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+.thumbnail-preview.empty::before{
+    content:"Thumbnail belum tersedia";
+    color:#766f61;
+    font-size:12px;
+}
 .mobile-menu{display:none}
 @media(max-width:767px){
     .mobile-menu{display:flex}
@@ -216,8 +240,20 @@ body{
                 </div>
                 <div class="md:col-span-2">
                     <label class="block text-sm text-gray-400 mb-2">URL Thumbnail</label>
-                    <input id="eventThumbnail" class="input-style rounded-lg px-4 py-3" type="url" placeholder="https://contoh.com/gambar.jpg">
-                    <p class="text-xs text-gray-600 mt-1">Thumbnail Open Graph harus dapat diakses secara publik.</p>
+                    <input id="eventThumbnail" class="input-style rounded-lg px-4 py-3"
+                           type="url"
+                           placeholder="https://contoh.com/gambar.jpg"
+                           autocomplete="off">
+                    <p class="text-xs text-gray-600 mt-1">
+                        Gunakan URL gambar HTTPS yang bisa diakses publik. JPG/PNG dengan ukuran sekitar 1200×630 px disarankan.
+                    </p>
+
+                    <div id="thumbnailPreview" class="thumbnail-preview empty" aria-label="Preview thumbnail">
+                        <img id="thumbnailPreviewImage"
+                             src=""
+                             alt="Preview thumbnail"
+                             style="display:none">
+                    </div>
                 </div>
             </div>
 
@@ -397,6 +433,32 @@ function showToast(message){
     showToast.timer=setTimeout(()=>toast.classList.remove("show"),2500);
 }
 
+function updateThumbnailPreview(url){
+    const preview=document.getElementById("thumbnailPreview");
+    const image=document.getElementById("thumbnailPreviewImage");
+    const cleanUrl=(url || "").trim();
+
+    if(!cleanUrl){
+        image.removeAttribute("src");
+        image.style.display="none";
+        preview.classList.add("empty");
+        return;
+    }
+
+    image.onload=()=>{
+        image.style.display="block";
+        preview.classList.remove("empty");
+    };
+
+    image.onerror=()=>{
+        image.removeAttribute("src");
+        image.style.display="none";
+        preview.classList.add("empty");
+    };
+
+    image.src=cleanUrl;
+}
+
 function renderSettings(){
     document.getElementById("eventName").value=events.name || "";
     document.getElementById("brandName").value=events.brand || "";
@@ -407,6 +469,7 @@ function renderSettings(){
     document.getElementById("eventThumbnail").value=events.thumbnail || "";
     document.getElementById("waTemplate").value=waTemplate;
     document.getElementById("statEvent").textContent=events.name || "-";
+    updateThumbnailPreview(events.thumbnail);
 }
 
 function renderGuests(){
@@ -442,6 +505,11 @@ function renderGuests(){
     document.getElementById("guestBadge").textContent=`${guests.length} tamu`;
 }
 
+document.getElementById("eventThumbnail").addEventListener("input",(e)=>{
+    updateThumbnailPreview(e.target.value);
+});
+
+
 function saveEventSettings(){
     events={
         name:document.getElementById("eventName").value.trim(),
@@ -463,8 +531,20 @@ function updateMeta(){
     document.querySelector('meta[property="og:title"]').content=events.name || "Event Gitar";
     document.querySelector('meta[property="og:description"]').content=
         `Acara: ${events.name || "Event Gitar"} di ${events.location || "-"}`;
-    if(events.thumbnail) document.querySelector('meta[property="og:image"]').content=events.thumbnail;
-    if(events.link) document.querySelector('meta[property="og:url"]').content=events.link;
+
+    if(events.thumbnail){
+        document.querySelector('meta[property="og:image"]').content=events.thumbnail;
+
+        const secure=document.querySelector('meta[property="og:image:secure_url"]');
+        if(secure) secure.content=events.thumbnail;
+
+        const twitter=document.querySelector('meta[name="twitter:image"]');
+        if(twitter) twitter.content=events.thumbnail;
+    }
+
+    if(events.link){
+        document.querySelector('meta[property="og:url"]').content=events.link;
+    }
 }
 
 function addGuest(name){
