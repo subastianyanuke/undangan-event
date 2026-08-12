@@ -1,417 +1,182 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://subastianyanuke.github.io/undangan-event/t.jpg">
-    <title>Undangan Showcase Ibanez Guitar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #D4AF37;
-            --gold-light: #F4E4BC;
-            --dark-grey: #2C2C2C;
-            --light-grey: #A9A9A9;
-            --black: #111111;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="Undangan eksklusif Ibanez Guitar Showcase">
+<meta property="og:title" content="Undangan Showcase Ibanez Guitar">
+<meta property="og:description" content="Exclusive Showroom Event">
+<meta property="og:image" content="https://subastianyanuke.github.io/undangan-event/ft.jpg">
+<meta property="og:type" content="website">
+<title>Undangan Showcase Ibanez Guitar</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, var(--black), var(--dark-grey), var(--black));
-            color: white;
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Background Ornamen Bergerak */
-        .bg-ornaments {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.3;
-            filter: blur(40px);
-            animation: float 15s infinite ease-in-out;
-        }
-
-        .orb1 { width: 300px; height: 300px; background: var(--gold); top: -50px; left: -50px; animation-duration: 12s; }
-        .orb2 { width: 400px; height: 400px; background: var(--dark-grey); bottom: -100px; right: -100px; animation-duration: 18s; }
-        .orb3 { width: 200px; height: 200px; background: var(--light-grey); top: 50%; left: 50%; animation-duration: 20s; }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(50px, -30px) scale(1.1); }
-            66% { transform: translate(-30px, 40px) scale(0.9); }
-        }
-
-        /* Kontainer Utama */
-        .container {
-            width: 100%;
-            max-width: 600px;
-            padding: 40px 20px;
-            text-align: center;
-            z-index: 1;
-        }
-
-        /* Halaman Awal (Cover) */
-        .cover-page {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: fadeIn 1.5s ease;
-        }
-
-        .ucapan {
-            font-family: 'Cinzel', serif;
-            color: var(--gold-light);
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            font-size: 14px;
-            max-width: 90%;
-        }
-
-        .ucapan span {
-            display: block;
-            font-size: 18px;
-            color: var(--gold);
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        .oval-photo {
-            width: 250px;
-            height: 330px;
-            background-color: var(--dark-grey);
-            border: 4px solid var(--gold);
-            border-radius: 50%; /* Membuat bentuk oval */
-            margin: 20px 0;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .oval-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .brand-name {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--gold), var(--gold-light), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-
-        .tagline {
-            font-size: 12px;
-            color: var(--light-grey);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 40px;
-        }
-
-        .btn-open {
-            background: linear-gradient(to right, var(--gold), var(--gold-light));
-            color: var(--black);
-            border: none;
-            padding: 15px 40px;
-            font-size: 16px;
-            font-weight: bold;
-            font-family: 'Cinzel', serif;
-            border-radius: 30px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        .btn-open:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
-        }
-
-        /* Halaman Slide (Showcase) */
-        .slide-page {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            animation: fadeIn 1s ease;
-        }
-
-        .slide-title {
-            font-family: 'Cinzel', serif;
-            color: var(--gold);
-            font-size: 24px;
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--gold);
-            padding-bottom: 10px;
-        }
-
-        .guitar-card {
-            background: rgba(44, 44, 44, 0.6);
-            border: 1px solid var(--gold);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 30px;
-            width: 90%;
-            backdrop-filter: blur(10px);
-        }
-
-        .guitar-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 1px solid var(--light-grey);
-        }
-
-        .guitar-card h3 {
-            font-family: 'Cinzel', serif;
-            color: var(--gold-light);
-            margin-bottom: 10px;
-        }
-
-        .guitar-card p {
-            font-size: 14px;
-            color: var(--light-grey);
-            line-height: 1.5;
-        }
-
-        .contact-section {
-            width: 90%;
-            background: rgba(44, 44, 44, 0.6);
-            border: 1px solid var(--gold);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .contact-section h3 {
-            font-family: 'Cinzel', serif;
-            color: var(--gold);
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .contact-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px dashed var(--light-grey);
-            padding: 10px 0;
-        }
-
-        .contact-item:last-child {
-            border-bottom: none;
-        }
-
-        .contact-label {
-            font-size: 12px;
-            color: var(--light-grey);
-        }
-
-        .contact-value {
-            font-weight: bold;
-            color: white;
-            font-size: 14px;
-        }
-
-        .btn-back {
-            background: transparent;
-            color: var(--light-grey);
-            border: 1px solid var(--light-grey);
-            padding: 10px 30px;
-            font-size: 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-        }
-
-        .btn-back:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        /* Audio Player */
-        #bg-music {
-            display: none;
-        }
-
-        .music-indicator {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid var(--gold);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-size: 18px;
-            animation: spin 4s linear infinite;
-            z-index: 99;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-    </style>
+<style>
+:root{--gold:#d4af37;--gold-light:#f4e4bc;--dark:#2c2c2c;--muted:#a9a9a9;--black:#080808;--card:rgba(35,35,35,.68)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,sans-serif;background:linear-gradient(135deg,#080808,#2c2c2c,#080808);color:#fff;min-height:100vh;overflow-x:hidden}
+button{font:inherit}
+.bg-ornaments{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(45px);opacity:.22;animation:float 15s ease-in-out infinite}
+.orb1{width:300px;height:300px;background:var(--gold);top:-70px;left:-70px}
+.orb2{width:420px;height:420px;background:#555;right:-150px;bottom:-130px;animation-duration:19s}
+.orb3{width:230px;height:230px;background:var(--gold-light);left:50%;top:48%;animation-duration:22s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(45px,-30px) scale(1.08)}66%{transform:translate(-30px,35px) scale(.92)}}
+.container{width:min(100%,650px);margin:auto;padding:34px 18px 50px;text-align:center}
+.cover-page,.slide-page{align-items:center;flex-direction:column}
+.cover-page{display:flex;min-height:calc(100vh - 84px);justify-content:center;animation:fadeIn .9s ease}
+.slide-page{display:none;animation:fadeIn .6s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.ucapan{font-family:Cinzel,serif;color:var(--gold-light);font-size:14px;line-height:1.6;max-width:520px}
+.ucapan span{display:block;color:var(--gold);font-size:18px;font-weight:700;margin-top:8px}
+.oval-photo{width:min(250px,70vw);height:min(330px,88vw);margin:22px 0;border:4px solid var(--gold);border-radius:50%;overflow:hidden;background:#222;box-shadow:0 0 35px rgba(212,175,55,.28)}
+.oval-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.brand-name{font-family:Cinzel,serif;font-size:clamp(2rem,8vw,2.8rem);font-weight:700;letter-spacing:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tagline{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:3px;margin:8px 0 32px}
+.btn-open,.btn-back,.music-btn{cursor:pointer;transition:.25s}
+.btn-open{border:1px solid var(--gold);background:linear-gradient(90deg,var(--gold),var(--gold-light));color:#111;padding:14px 34px;border-radius:30px;font-family:Cinzel,serif;font-weight:700;letter-spacing:1px;box-shadow:0 7px 24px rgba(212,175,55,.28)}
+.btn-open:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(212,175,55,.45)}
+.slide-title{font-family:Cinzel,serif;color:var(--gold);font-size:clamp(21px,6vw,28px);margin:10px 0 24px;padding-bottom:10px;border-bottom:1px solid var(--gold)}
+.guitar-card,.contact-section{width:100%;background:var(--card);border:1px solid rgba(212,175,55,.75);border-radius:16px;padding:18px;margin-bottom:22px;backdrop-filter:blur(12px);box-shadow:0 12px 35px rgba(0,0,0,.22)}
+.guitar-card img{width:100%;max-height:410px;object-fit:cover;border-radius:11px;border:1px solid #777;display:block;margin-bottom:14px}
+.guitar-card h3,.contact-section h3{font-family:Cinzel,serif;color:var(--gold-light)}
+.guitar-card h3{font-size:20px;margin-bottom:8px}
+.guitar-card p{font-size:13px;line-height:1.65;color:var(--muted)}
+.contact-section{text-align:left}
+.contact-section h3{text-align:center;font-size:20px;margin-bottom:12px}
+.contact-item{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;border-bottom:1px dashed rgba(169,169,169,.45);padding:12px 0}
+.contact-item:last-child{border-bottom:0}
+.contact-label{font-size:11px;color:var(--muted);flex:0 0 35%}
+.contact-value{font-size:13px;font-weight:600;text-align:right;color:#fff;word-break:break-word}
+.btn-back{background:transparent;color:var(--muted);border:1px solid #777;padding:10px 28px;border-radius:24px;text-transform:uppercase;font-size:11px;letter-spacing:1px}
+.btn-back:hover{border-color:var(--gold);color:var(--gold)}
+.music-btn{position:fixed;right:18px;top:18px;width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.62);border:1px solid var(--gold);color:var(--gold);z-index:20;display:grid;place-items:center}
+.music-btn.playing{animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.notice{font-size:10px;color:#777;margin-top:18px;line-height:1.5}
+@media(max-width:480px){
+ .container{padding:26px 14px 40px}
+ .contact-item{display:block}
+ .contact-label,.contact-value{display:block;text-align:left}
+ .contact-value{margin-top:4px}
+ .guitar-card,.contact-section{padding:14px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+}
+</style>
 </head>
 <body>
+<div class="bg-ornaments" aria-hidden="true">
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+</div>
 
-    <!-- Audio Musik Latar -->
-    <audio id="bg-music" loop>
-        <!-- Menggunakan link instrumental audio gratis -->
-        <source src="Classical Dragon (feat. Tim Henson).mp3" type="audio/mpeg">
-    </audio>
-    <div class="music-indicator">🎵</div>
+<audio id="bg-music" loop preload="metadata">
+  <source src="Classical Dragon (feat. Tim Henson).mp3" type="audio/mpeg">
+</audio>
+<button id="musicToggle" class="music-btn" type="button" aria-label="Putar atau jeda musik" title="Musik">♫</button>
 
-    <!-- Ornamen Background Bergerak -->
-    <div class="bg-ornaments">
-        <div class="orb orb1"></div>
-        <div class="orb orb2"></div>
-        <div class="orb orb3"></div>
+<main class="container">
+  <section id="coverPage" class="cover-page" aria-label="Halaman pembuka">
+    <p class="ucapan">Kepada Yth. Bapak/Ibu/Saudara/i Pecinta Musik
+      <span>Anda diundang eksklusif!</span>
+    </p>
+
+    <div class="oval-photo">
+      <img src="https://cdn.mos.cms.futurecdn.net/jRK3tgS3A7vdJEYzd7Rwdm-970-80.jpg" alt="Ibanez TOD10N" loading="eager">
     </div>
 
-    <div class="container">
-        
-        <!-- HALAMAN AWAL -->
-        <div class="cover-page" id="coverPage">
-            <div class="ucapan">
-                Kepada Yth. Bapak/Ibu/Saudara/i Pecinta Musik
-                <span>Anda diundang eksklusif!</span>
-            </div>
+    <h1 class="brand-name">Ibanez Guitar</h1>
+    <p class="tagline">Exclusive Showroom Event</p>
+    <button id="openButton" class="btn-open" type="button">Buka Undangan</button>
+    <p class="notice">Tekan tombol di atas untuk melihat koleksi dan informasi acara.</p>
+  </section>
 
-            <div class="oval-photo">
-                <!-- Menggunakan link gambar langsung dari extraction URL Yahoo search Anda -->
-                <img src="https://cdn.mos.cms.futurecdn.net/jRK3tgS3A7vdJEYzd7Rwdm-970-80.jpg" alt="Ibanez TOD10N">
-            </div>
+  <section id="slidePage" class="slide-page" aria-label="Detail undangan">
+    <h2 class="slide-title">Showroom Collection</h2>
 
-            <h1 class="brand-name">Ibanez Guitar</h1>
-            <div class="tagline">Exclusive Showroom Event</div>
+    <article class="guitar-card">
+      <img src="https://cdn.mos.cms.futurecdn.net/jRK3tgS3A7vdJEYzd7Rwdm-970-80.jpg" alt="Ibanez TOD10N Front" loading="lazy">
+      <h3>Ibanez TOD10N</h3>
+      <p>Gitar signature Tim Henson dengan desain elegan, nylon-string, dan Piscean pickguard yang ikonik.</p>
+    </article>
 
-            <button class="btn-open" onclick="openSlides()">Buka Undangan</button>
-        </div>
+    <article class="guitar-card">
+      <img src="https://www.groundguitar.com/wp-content/uploads/2023/01/Tim-Henson-Bread-Guitar-Nylon.jpg" alt="Tim Henson nylon guitar detail" loading="lazy">
+      <h3>TOD10N Detail</h3>
+      <p>Menampilkan detail body dengan karakter visual yang unik, menggabungkan seni dan keindahan suara.</p>
+    </article>
 
-        <!-- HALAMAN SLIDE -->
-        <div class="slide-page" id="slidePage">
-            <h2 class="slide-title">Showroom Collection</h2>
+    <section class="contact-section">
+      <h3>Reservasi &amp; Pembelian</h3>
+      <div class="contact-item"><span class="contact-label">Tanggal Acara</span><span class="contact-value">Sabtu, 15 Agustus 2026</span></div>
+      <div class="contact-item"><span class="contact-label">Waktu</span><span class="contact-value">10.00 - 18.00 WITA</span></div>
+      <div class="contact-item"><span class="contact-label">Lokasi</span><span class="contact-value">Ibanez Showroom, Jl. Ahmad Yani No.123, Banjarmasin</span></div>
+      <div class="contact-item"><span class="contact-label">No. WhatsApp</span><span class="contact-value">0812-3456-7890</span></div>
+      <div class="contact-item"><span class="contact-label">Bank BCA</span><span class="contact-value">1234567890 (a.n Ibanez ID)</span></div>
+      <div class="contact-item"><span class="contact-label">Bank Mandiri</span><span class="contact-value">9876543210 (a.n Ibanez ID)</span></div>
+    </section>
 
-            <!-- Gitar 1 -->
-            <div class="guitar-card">
-                <img src="https://cdn.mos.cms.futurecdn.net/jRK3tgS3A7vdJEYzd7Rwdm-970-80.jpg" alt="Ibanez TOD10N Front">
-                <h3>Ibanez TOD10N</h3>
-                <p>Gitar signature Tim Henson dengan desain elegan, nylon-string, dan Piscean pickguard yang ikonik.</p>
-            </div>
+    <button id="backButton" class="btn-back" type="button">Kembali</button>
+  </section>
+</main>
 
-            <!-- Gitar 2 -->
-            <div class="guitar-card">
-                <img src="https://www.groundguitar.com/wp-content/uploads/2023/01/Tim-Henson-Bread-Guitar-Nylon.jpg" alt="Ibanez TOD10N Side">
-                <h3>TOD10N Detail</h3>
-                <p>Menampilkan detail body ukiran "Tree of Death" yang memukau, menggabungkan seni dan keindahan suara.</p>
-            </div>
+<script>
+"use strict";
 
-            <!-- Kontak / Pembayaran -->
-            <div class="contact-section">
-                <h3>Reservasi & Pembelian</h3>
-                <div class="contact-item">
-    <span class="contact-label">Tanggal Acara:</span>
-    <span class="contact-value">Sabtu, 15 Agustus 2026</span>
-</div>
+const audio=document.getElementById("bg-music");
+const musicToggle=document.getElementById("musicToggle");
+const coverPage=document.getElementById("coverPage");
+const slidePage=document.getElementById("slidePage");
+const openButton=document.getElementById("openButton");
+const backButton=document.getElementById("backButton");
 
-<div class="contact-item">
-    <span class="contact-label">Waktu:</span>
-    <span class="contact-value">10.00 - 18.00 WITA</span>
-</div>
+function updateMusicUI(){
+  const playing=!audio.paused;
+  musicToggle.classList.toggle("playing",playing);
+  musicToggle.textContent=playing?"♫":"♪";
+  musicToggle.setAttribute("aria-label",playing?"Jeda musik":"Putar musik");
+}
 
-<div class="contact-item">
-    <span class="contact-label">Lokasi:</span>
-    <span class="contact-value">Ibanez Showroom, Jl. Ahmad Yani No.123, Banjarmasin</span>
-</div>
-                <div class="contact-item">
-                    <span class="contact-label">No. WhatsApp:</span>
-                    <span class="contact-value">0812-3456-7890</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Bank BCA:</span>
-                    <span class="contact-value">1234567890 (a.n Ibanez ID)</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Bank Mandiri:</span>
-                    <span class="contact-value">9876543210 (a.n Ibanez ID)</span>
-                </div>
-            </div>
+async function playMusic(){
+  try{await audio.play();updateMusicUI();}catch(e){updateMusicUI();}
+}
 
-            <button class="btn-back" onclick="backToCover()">Kembali</button>
-        </div>
+function openSlides(){
+  coverPage.style.display="none";
+  slidePage.style.display="flex";
+  window.scrollTo({top:0,behavior:"smooth"});
+  playMusic();
+}
 
-    </div>
+function backToCover(){
+  slidePage.style.display="none";
+  coverPage.style.display="flex";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
 
-    <script>
-        let audio = document.getElementById('bg-music');
-        
-        // Memulai musik otomatis saat halaman dibuka
-        window.onload = function() {
-            audio.play().catch(error => {
-                // Browser modern biasanya memblokir autoplay tanpa interaksi user.
-                // Jika diblokir, musik akan diputar saat user mengklik apapun.
-                document.body.addEventListener('click', () => {
-                    audio.play();
-                }, { once: true });
-            });
-        };
+openButton.addEventListener("click",openSlides);
+backButton.addEventListener("click",backToCover);
 
-        function openSlides() {
-            document.getElementById('coverPage').style.display = 'none';
-            document.getElementById('slidePage').style.display = 'flex';
-            // Pastikan musik terus berputar
-            if(audio.paused) audio.play();
-        }
+musicToggle.addEventListener("click",async()=>{
+  if(audio.paused) await playMusic();
+  else {audio.pause();updateMusicUI();}
+});
 
-        function backToCover() {
-            document.getElementById('slidePage').style.display = 'none';
-            document.getElementById('coverPage').style.display = 'flex';
-        }
-    </script>
+document.addEventListener("pointerdown",()=>{
+  if(audio.paused) playMusic();
+},{once:true});
+
+audio.addEventListener("play",updateMusicUI);
+audio.addEventListener("pause",updateMusicUI);
+audio.addEventListener("error",()=>{
+  musicToggle.style.opacity=".45";
+  musicToggle.title="File musik tidak ditemukan";
+});
+
+updateMusicUI();
+</script>
 </body>
 </html>
